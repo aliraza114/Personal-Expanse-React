@@ -11,7 +11,7 @@ export const AddTransaction = () => {
     e.preventDefault();
 
     const newTransaction = {
-      id: Math.floor(Math.random() * 100000000),
+      id: new Date(),
       text,
       amount: +amount
     }
@@ -19,19 +19,19 @@ export const AddTransaction = () => {
   }
 
   return (
-    !isUpdate ? <div>
-      <h3>Add new transaction</h3>
+    !isUpdate ? <div className='transactionForm'>
+      <h3>Add New transaction</h3>
       <form onSubmit={onSubmit}>
         <div className="form-control">
-          <label htmlFor="text">Text</label>
-          <input type="text" value={ text  } onChange={(e) => setText(e.target.value)} placeholder="Enter text..." />
+          <label htmlFor="text">Description</label>
+          <input required className="form-text" type="text" value={ text  } onChange={(e) => setText(e.target.value)} placeholder="Enter text..." />
         </div>
         <div className="form-control">
           <label htmlFor="amount"
             >Amount <br />
             (negative - expense, positive - income)</label
           >
-          <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount..." />
+          <input required class='form-text'  type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount..." />
         </div>
         <button disabled={ (text === '' && amount === 0) ? true : false} className={ `${amount > 1 && text !== '' ? 'btnSuccess' : 'btnDanger'}` }>{ amount > 1 ?  'Add Income' : 'Add Expanse' }</button>
       </form>

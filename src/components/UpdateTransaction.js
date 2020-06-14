@@ -3,25 +3,40 @@ import { GlobalContext } from '../context/GlobalState'
 
 export const UpdateTransaction = () => {
     // const [isUpdate, setUpdate] = useState()
-    const { isUpdate, updateTransactionList, updateFalse } = useContext(GlobalContext) 
-    const [text, setText] = useState(updateTransactionList.text);
-    const [amount, setAmount] = useState(updateTransactionList.amount);
+    const { updateTransValue, isUpdate, updateTransactionList, updateFalse } = useContext(GlobalContext) 
+    const [text, setText] = useState('');
+    const [amount, setAmount] = useState(0);
     console.log('Update ', isUpdate)
     console.log('Update ', updateTransactionList)
+
+    console.log(updateTransactionList)
+    const onUpdate = e => {
+        e.preventDefault();
+    
+        const updateTrans = {
+          id: updateTransactionList.id,
+          text,
+          amount: +amount
+        }
+        console.log('update T : ', updateTrans)
+        updateTransValue(updateTrans);
+      }
+
     return (
-       isUpdate ?  <div >
-           <button onClick={() => updateFalse(false) } > cancel </button>
+       isUpdate ?  <div className='transactionForm'>
+           
        <h3>Update Transaction</h3>
-       <form >
+       <form onSubmit={onUpdate} >
            <div className="form-control">
-           <label htmlFor="text">Text</label>
-           <input type="text" value={updateTransactionList.text} onChange= {(e) => setText(e.target.value)} placeholder="Enter text..." />
+           <label htmlFor="text">Description</label>
+           <input required className='form-text' type="text" value={ text === '' ? updateTransactionList.text : text} onChange= {(e) => setText(e.target.value)} placeholder="Enter text..." />
            </div>
            <div className="form-control">
-           <label > Amount Here </label>
-           <input type="number" value={updateTransactionList.amount} onChange = {(e) => setAmount(e.target.value)} placeholder="Enter amount..." />
+           <label> Amount Here </label>
+           <input required className='form-text' type="number" value={ amount === 0 ? updateTransactionList.amount : amount } onChange = {(e) => setAmount(e.target.value)} placeholder="Enter amount..." />
            </div>
-           <button className='btnSuccess' > Update</button>
+           <button className='btnSuccess'> Update</button>
+           <button className='btnDanger' onClick={() => updateFalse(false) } > Cancel </button>
        </form>
        </div> : ''
     )

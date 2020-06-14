@@ -37,10 +37,16 @@ export const GlobalProvider = ({ children }) => {
   }
 
   function updateTransaction(updateTransactionList){
-
     dispatch({
-      type: 'UPDATE_TRANSACTION',
+      type: 'UPDATE_TRANSACTION_SETUP',
       payload: updateTransactionList
+    })
+  }
+
+  function updateTransValue(transaction){
+    dispatch({
+      type: 'UPDATE_TRANSACTION_VALUE',
+      payload: transaction
     })
   }
 
@@ -51,7 +57,8 @@ export const GlobalProvider = ({ children }) => {
     deleteTransaction,
     addTransaction,
     updateTransaction,
-    updateFalse
+    updateFalse,
+    updateTransValue,
   }}>
     {children}
   </GlobalContext.Provider>);
