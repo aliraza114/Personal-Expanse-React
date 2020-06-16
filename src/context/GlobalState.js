@@ -1,19 +1,33 @@
 import React, { createContext, useReducer } from 'react';
-import AppReducer from './AppReducer';
+import AppReducer from './AppReducer'
 
 // Initial state
-const initialState = {
+let initialState = {
   transactions: [],
   updateTransactionList: [],
   isUpdate: false
 }
 
+
 // Create context
+
 export const GlobalContext = createContext(initialState);
 
 // Provider component
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
+
+  // var data = localStorage.getItem("transactions");
+  //   var transactions = data ? JSON.parse(data) : [];
+  //   var film = state.transactions
+  //       transactions.push(film);
+  //       localStorage.setItem("transactions", JSON.stringify(transactions));
+
+  //       var trans = localStorage.getItem("transactions");
+  //       trans = JSON.parse(trans);
+  //     state.transactions = trans[trans.length-1]
+  //     console.log(state.transactions)
+    
   // Actions
   function deleteTransaction(id) {
     dispatch({
@@ -49,6 +63,7 @@ export const GlobalProvider = ({ children }) => {
       payload: transaction
     })
   }
+  
 
   return (<GlobalContext.Provider value={{
     transactions: state.transactions,

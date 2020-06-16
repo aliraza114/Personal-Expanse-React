@@ -1,15 +1,13 @@
 import React, {useState, useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState'
-
+import { useAlert } from  'react-alert'
+ 
 export const UpdateTransaction = () => {
-    // const [isUpdate, setUpdate] = useState()
+    const alert = useAlert()
     const { updateTransValue, isUpdate, updateTransactionList, updateFalse } = useContext(GlobalContext) 
     const [text, setText] = useState('');
     const [amount, setAmount] = useState(0);
-    console.log('Update ', isUpdate)
-    console.log('Update ', updateTransactionList)
-
-    console.log(updateTransactionList)
+    
     const onUpdate = e => {
         e.preventDefault();
     
@@ -18,8 +16,8 @@ export const UpdateTransaction = () => {
           text,
           amount: +amount
         }
-        console.log('update T : ', updateTrans)
         updateTransValue(updateTrans);
+        alert.show('Transaction Updated Successfully') 
       }
 
     return (
@@ -29,13 +27,13 @@ export const UpdateTransaction = () => {
        <form onSubmit={onUpdate} >
            <div className="form-control">
            <label htmlFor="text">Description</label>
-           <input required className='form-text' type="text" value={ text === '' ? updateTransactionList.text : text} onChange= {(e) => setText(e.target.value)} placeholder="Enter text..." />
+           <input required className='form-text' type="text" onChange= {(e) => setText(e.target.value)} placeholder="Enter text..." />
            </div>
            <div className="form-control">
            <label> Amount Here </label>
-           <input required className='form-text' type="number" value={ amount === 0 ? updateTransactionList.amount : amount } onChange = {(e) => setAmount(e.target.value)} placeholder="Enter amount..." />
+           <input required className='form-text' type="number"  onChange = {(e) => setAmount(e.target.value)} placeholder="Enter amount..." />
            </div>
-           <button className='btnSuccess'> Update</button>
+           <button className={ `${amount > 0 ? 'btnSuccess' : 'btnDanger'}` } > Update</button>
            <button className='btnDanger' onClick={() => updateFalse(false) } > Cancel </button>
        </form>
        </div> : ''

@@ -1,8 +1,4 @@
-
-
 export default (state, action) => {
-    console.log('state ', state)
-    console.log(action)
     switch(action.type) {
       case 'DELETE_TRANSACTION':
         return {
@@ -17,9 +13,14 @@ export default (state, action) => {
           case 'UPDATE_TRANSACTION_VALUE':
             return {
               ...state,
-              transactions: state.transactions.filter(transaction => transaction.id !== action.payload.id),
-          
-              transactions: action.payload, ...state.transactions
+                  transactions: state.transactions.map(transaction => {
+                      if (transaction.id === action.payload.id) {
+                          return action.payload;
+                      } else {
+                          return transaction;
+                      }
+                  }),
+                  isUpdate: state.isUpdate = false
             }
           
         case 'UPDATE_TRANSACTION_SETUP':

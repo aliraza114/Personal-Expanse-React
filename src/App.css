@@ -31,7 +31,7 @@ body {
 
 .headerClass {
   text-align: center;
-  color: red;
+  color: rgb(82, 82, 175);
   border-radius: 30px 30px 0px 0px; 
   font-size: 18px;
   padding: 20px;
@@ -78,7 +78,7 @@ h4 {
   margin: 20px 0;
   border: 2px solid #c0392b;
   border-bottom: none;
-  border-radius: 0px 0px 0px 30px;
+  border-radius: 0px 0px 30px 30px;
 }
 
 .balanceClass {
@@ -132,7 +132,7 @@ input[type='number'] {
 
 .btnDanger {
   cursor: pointer;
-  background-color: rgb(216, 30, 30);
+  background-color: rgb(226, 77, 77);
   border-radius: 35px;
   padding: 10px;
   box-shadow: var(--box-shadow);
@@ -146,9 +146,25 @@ input[type='number'] {
 
 }
 
+.iconEdit {
+  color:  rgb(77, 163, 77);
+  font-size: 10px;
+  background-color: transparent;
+  outline: none;
+  border: none !important;
+}
+
+.iconEdit:hover {
+  color: #c0392b;
+  font-size: 10px;
+  
+  outline: none;
+  border: none !important;
+}
+
 .btnSuccess {
   cursor: pointer;
-  background-color: green;
+  background-color: rgb(77, 163, 77);
   border-radius: 25px;
   padding: 10px;
   box-shadow: var(--box-shadow);

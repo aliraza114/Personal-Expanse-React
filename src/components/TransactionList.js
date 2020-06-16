@@ -7,9 +7,8 @@ export const TransactionList = () => {
   const { transactions } = useContext(GlobalContext);
   return (
     <div>
-      <h3>History</h3>
-      <ul className="list">
-        
+      <h3>{ transactions.length < 1 ? 'No Transaction History Yet' : '' }</h3>
+      <ul className="list">   
         {transactions.map(transaction => (<Transaction key={transaction.id} transaction={transaction} />))}
       </ul>
     </div>
