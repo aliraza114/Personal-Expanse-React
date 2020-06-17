@@ -3,7 +3,14 @@ import AppReducer from './AppReducer'
 
 // Initial state
 let initialState = {
-  transactions: [],
+  transactions: [
+  {
+    id: new Date(),
+    text: 'Salary is the first jkl',
+    amount: 50
+  }
+
+  ],
   updateTransactionList: [],
   isUpdate: false
 }
@@ -16,17 +23,6 @@ export const GlobalContext = createContext(initialState);
 // Provider component
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
-
-  // var data = localStorage.getItem("transactions");
-  //   var transactions = data ? JSON.parse(data) : [];
-  //   var film = state.transactions
-  //       transactions.push(film);
-  //       localStorage.setItem("transactions", JSON.stringify(transactions));
-
-  //       var trans = localStorage.getItem("transactions");
-  //       trans = JSON.parse(trans);
-  //     state.transactions = trans[trans.length-1]
-  //     console.log(state.transactions)
     
   // Actions
   function deleteTransaction(id) {
