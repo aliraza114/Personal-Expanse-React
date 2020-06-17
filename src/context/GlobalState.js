@@ -3,14 +3,7 @@ import AppReducer from './AppReducer'
 
 // Initial state
 let initialState = {
-  transactions: [
-  {
-    id: new Date(),
-    text: 'Salary is the first jkl',
-    amount: 50
-  }
-
-  ],
+  transactions: [],
   updateTransactionList: [],
   isUpdate: false
 }
