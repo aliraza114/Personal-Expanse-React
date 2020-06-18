@@ -166,6 +166,7 @@ input[type='number'] {
 
 }
 
+
 .iconEdit {
   color:  rgb(77, 163, 77);
   font-size: 10px;
@@ -227,8 +228,6 @@ input[type='number'] {
   padding: 20px;
   box-shadow: var(--box-shadow);
   color: #333;
-  
-  padding: 40px;
   display: flex;
   font-size: 20px;
   justify-content: space-between;
@@ -286,8 +285,248 @@ input[type='number'] {
 
 
 
-@media (max-width: 320px) {
+@media (max-width: 600px) {
   .container {
-    width: 300px;
+    width: 350px;
   }
+
+  .balanceClass {
+    background-color: #fff;
+    text-align: center;
+    padding: 10px;
+    color: black;
+    border-radius: 30px 30px 0px 0px;
+    box-shadow: var(--box-shadow);
+  }
+
+  .inc-exp-container {
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    border-radius: 0px 0px 30px 30px;
+  }
+
+  .list li {
+  border-radius: 20px 0px 0px 20px;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+  color: #333;
+  display: flex;
+  font-size: 20px;
+  justify-content: space-between;
+  position: relative;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.dateClass {
+  margin-left: 10px;
+  color: rgb(68, 87, 68);
+  font-size: 14px;
+}
+.textClass {
+  margin-left: 20px;
+  color: gray;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Roboto';  
+}
+.danger {
+  color: rgb(209, 79, 56);
+  font-size: 20px;
+  font-family: 'Roboto';  
+  font-weight: bold;
+}
+.success {
+  color: green;
+  font-size: 20px;
+  font-weight: bold;
+}
+.amountText {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;  
+  color: black;
+}
+
+.btnDanger {
+  cursor: pointer;
+  background-color: rgb(226, 77, 77);
+  border-radius: 35px;
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 14px;
+  margin: 7px 0 10px;
+  padding: 7px;
+  width: 100%;
+
+}
+.btnSuccess {
+  cursor: pointer;
+  background-color: rgb(77, 163, 77);
+  border-radius: 25px;
+  padding: 7px;
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 14px;
+  margin: 7px 0 10px;
+  padding: 7px;
+  width: 100%;
+}
+
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: 280px;
+  }
+
+  input[type='text'],
+input[type='number'] {
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  display: block;
+  font-size: 12px;
+  padding: 5px;
+  width: 100%;
+}
+
+h3 {
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 5px;
+  margin: 20px 0 5px;
+  font-size: 18px;
+}
+  .transactionForm {
+    border: 1px solid gray;
+    border-radius: 25px;
+    padding: 10px;
+  }
+
+  .form-text {
+    border: 1px solid red;
+    padding: 5px;
+  }
+
+  label {
+    display: inline-block;
+    margin: 4px 0;
+    font-size: 12px;
+  }
+
+  .headerClass {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;  
+    color: rgb(82, 82, 175);
+    border-radius: 30px 30px 0px 0px; 
+    font-size: 14px;
+    padding: 10px;
+    box-shadow: var(--box-shadow);
+    border-bottom: none;
+  }
+
+  .balanceClass {
+    background-color: #fff;
+    text-align: center;
+    padding: 5px;
+    color: black;
+    font-size: 14px;
+    border-radius: 30px 30px 0px 0px;
+    box-shadow: var(--box-shadow);
+  }
+
+
+
+  .inc-exp-container {
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    padding: 5px;
+    display: flex;
+    font-size: 14px;
+    justify-content: space-between;
+    margin: 5px 0;
+    border-radius: 0px 0px 30px 30px;
+  }
+
+  .list li {
+  border-radius: 20px 0px 0px 20px;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: var(--box-shadow);
+  color: #333;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+  position: relative;
+  padding: 5px;
+  margin: 7px 0;
+}
+
+.dateClass {
+  margin-left: 5px;
+  color: rgb(68, 87, 68);
+  font-size: 12px;
+}
+.textClass {
+  margin-left: 5px;
+  color: gray;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Roboto';  
+}
+.danger {
+  color: rgb(209, 79, 56);
+  font-size: 12px;
+  font-family: 'Roboto';  
+  font-weight: bold;
+}
+.success {
+  color: green;
+  font-size: 12px;
+  font-weight: bold;
+}
+.amountText {
+  font-size: 10px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;  
+  color: black;
+}
+
+.btnDanger {
+  cursor: pointer;
+  background-color: rgb(226, 77, 77);
+  border-radius: 25px;
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 10px;
+  margin: 4px 0 7px;
+  padding: 4px;
+  width: 100%;
+
+}
+.btnSuccess {
+  cursor: pointer;
+  background-color: rgb(77, 163, 77);
+  border-radius: 25px;
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  border: 0;
+  padding: 4px;
+  display: block;
+  font-size: 12px;
+  margin: 4px 0 7px;
+  padding: 4px;
+  width: 100%;
+}
+
 }
